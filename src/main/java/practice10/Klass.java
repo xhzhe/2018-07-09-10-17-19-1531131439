@@ -1,11 +1,11 @@
 package practice10;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Klass {
     private Student leader;
     private int number;
-    private ArrayList<Student> students = new ArrayList<>();
 
     public Klass(int number) {
         this.number = number;
@@ -32,7 +32,7 @@ public class Klass {
     }
 
     public void assignLeader(Student leader) {
-        if (students.isEmpty()) {
+        if (!leader.getKlass().equals(this)) {
             System.out.print("It is not one of us.\n");
         } else {
             this.leader = leader;
@@ -40,15 +40,18 @@ public class Klass {
     }
 
     public void appendMember(Student student) {
-        students.add(student);
+        student.setKlass(this);
     }
 
     public boolean isIn(Student student) {
-        for (Student student1 : this.students) {
-            if (student.equals(student1)) {
-                return true;
-            }
-        }
-        return false;
+        return student.getKlass().equals(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Klass klass = (Klass) o;
+        return number == klass.number;
     }
 }

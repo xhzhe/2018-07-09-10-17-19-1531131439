@@ -30,4 +30,9 @@ public class Student extends Person {
         }
         return introduce;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }
