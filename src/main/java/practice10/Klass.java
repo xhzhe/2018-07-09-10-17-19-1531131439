@@ -42,4 +42,13 @@ public class Klass {
     public void appendMember(Student student) {
         students.add(student);
     }
+
+    public boolean isIn(Student student) {
+        for (Student student1 : this.students) {
+            if (student.equals(student1)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
