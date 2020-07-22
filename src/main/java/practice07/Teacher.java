@@ -1,7 +1,5 @@
 package practice07;
 
-import practice06.Person;
-
 public class Teacher extends Person {
     private Klass klass;
 
